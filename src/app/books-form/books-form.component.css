@@ -1,0 +1,55 @@
+.main{
+  margin: 2vw;
+  justify-content: center;
+  align-items: center;
+
+
+  .formDiv{
+    width: 33%;
+    margin-top: 5vw;
+    background: #fff;
+    justify-content: center;
+    height: 600px;
+    box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.04);
+    box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.1);
+    border-radius: 12px;
+
+  }
+
+  .form{
+    margin-left: 40px;
+  }
+
+  .formHeading{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    margin-left: 40px;
+  }
+
+  .labelFont{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .form-control{
+    width: 90%;
+    /* height: 44px; */
+    gap: 0px;
+    opacity: 0px;
+    border-radius: 12px 12px 12px 12px;
+    border: 1px 1px 1px 1px;
+
+
+  }
+
+  .submit{
+    width: 262px;
+    height: 44px;
+    gap: 8px;
+    border-radius: 8px 8px 8px 8px;
+    border: none;
+    background: rgba(99, 101, 239, 1);
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  }
+}

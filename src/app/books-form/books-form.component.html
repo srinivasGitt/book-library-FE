@@ -1,0 +1,57 @@
+<div class="main d-flex">
+
+<div class="formDiv">
+  <p class="formHeading mt-3">Add New Book</p>
+  <form class="form mt-3" [formGroup]="bookForm">
+    <div class="form-group mb-3" >
+      <label for="title" class="labelFont">Title</label>
+      <input type="text" formControlName="title" class="form-control" id="title" placeholder="Enter title of the book">
+      <div *ngIf="f['title'].invalid && (f['title'].dirty || f['title'].touched)" class="text-danger">
+        title is required.
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="author" class="labelFont">Author</label>
+      <input type="text" formControlName="author"class="form-control" id="author" placeholder="Enter author name">
+      <div *ngIf="f['author'].invalid && (f['author'].dirty || f['author'].touched)" class="text-danger">
+        author is required.
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="description" class="labelFont">Description</label>
+      <input type="text" formControlName="description" class="form-control" id="description" placeholder="Enter description of the book">
+      <div *ngIf="f['description'].invalid && (f['description'].dirty || f['description'].touched)" class="text-danger">
+        description is required.
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="publicationYear" class="labelFont">Publication Year</label>
+      <input type="text" formControlName="publicationYear" class="form-control" id="publicationYear" placeholder="ENter year">
+      <div *ngIf="f['publicationYear'].errors?.['required'] && (f['publicationYear'].dirty || f['publicationYear'].touched)" class="text-danger">
+        Publication Year is required.
+      </div>
+      <div *ngIf="f['publicationYear'].errors?.['pattern'] && (f['publicationYear'].dirty || f['publicationYear'].touched)" class="text-danger">
+        Publication Year must be a number.
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label for="isbn" class="labelFont">ISBN</label>
+      <input type="text" formControlName="isbn" class="form-control" id="isbn" placeholder="enter isbn">
+      <div *ngIf="f['isbn'].errors?.['required'] && (f['isbn'].dirty || f['isbn'].touched)" class="text-danger">
+        isbn is required.
+      </div>
+      <div *ngIf="f['isbn'].errors?.['pattern'] && (f['isbn'].dirty || f['isbn'].touched)" class="text-danger">
+        isbn must be a number.
+      </div>
+    </div>
+
+    <div class="button">
+      <button type="submit" class="submit mb-3" [disabled]="bookForm.invalid" (click)="onSubmit()">
+        Add Book
+      </button>
+    </div>
+  </form>
+</div>
+</div>
+
+

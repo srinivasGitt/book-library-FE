@@ -1,0 +1,85 @@
+<div class="main d-flex justify-content-center">
+  <div class="section mt-4" *ngIf="showTable">
+    <input type="text" class="search" placeholder="Search books..." [(ngModel)]="searchTerm" (input)="search()" />
+    <div class="table-container">
+      <table class="table table-striped mt-3" *ngIf="books?.length > 0; else noData">
+        <thead >
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th>Publication Year</th>
+            <th>ISBN</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.description }}</td>
+            <td>{{ book.publicationYear }}</td>
+            <td class="d-flex">{{ book.isbn }}
+              <div class="button">
+                <button class="btn btn-primary btn-sm" (click)="openForm(book.isbn)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.isbn)">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+  <ng-template #noData>
+    <p>No data available</p>
+  </ng-template>
+  </div>
+
+  <div class="formDiv" *ngIf="showForm">
+    <p class="formHeading mt-3">Add New Book</p>
+    <form class="form mt-3" [formGroup]="editForm">
+      <div class="form-group mb-3" >
+        <label for="title" class="labelFont">Title</label>
+        <input type="text" formControlName="title" class="form-control" id="title" placeholder="Enter title of the book">
+        <div *ngIf="f['title'].invalid && (f['title'].dirty || f['title'].touched)" class="text-danger">
+          Title is required.
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="author" class="labelFont">Author</label>
+        <input type="text" formControlName="author"class="form-control" id="author" placeholder="Enter author name">
+        <div *ngIf="f['author'].invalid && (f['author'].dirty || f['author'].touched)" class="text-danger">
+          author name is required.
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description" class="labelFont">Description</label>
+        <input type="text" formControlName="description" class="form-control" id="description" placeholder="Enter description of the book">
+        <div *ngIf="f['description'].invalid && (f['description'].dirty || f['description'].touched)" class="text-danger">
+          description is required.
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="publicationYear" class="labelFont">Publication Year</label>
+        <input type="text" formControlName="publicationYear" class="form-control" id="publicationYear" placeholder="ENter year">
+        <div *ngIf="f['publicationYear'].errors?.['required'] && (f['publicationYear'].dirty || f['publicationYear'].touched)" class="text-danger">
+          Publication Year is required.
+        </div>
+        <div *ngIf="f['publicationYear'].errors?.['pattern'] && (f['publicationYear'].dirty || f['publicationYear'].touched)" class="text-danger">
+          Publication Year must be a number.
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="isbn" class="labelFont">ISBN</label>
+        <input type="text" [readonly]="true" formControlName="isbn" class="form-control" id="isbn" placeholder="enter isbn">
+      </div>
+
+      <div class="button">
+        <button type="submit" class=" mb-3 btn btn-success"  (click)="editBook(editForm.get('isbn')?.value)">
+          Update Book
+        </button>
+      </div>
+    </form>
+</div>
