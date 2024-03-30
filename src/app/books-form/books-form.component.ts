@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { BooksService } from '../books.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -10,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-books-form',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,ReactiveFormsModule, HttpClientModule, CommonModule],
+  imports: [ReactiveFormsModule, HttpClientModule, CommonModule],
   templateUrl: './books-form.component.html',
   styleUrl: './books-form.component.css'
 })

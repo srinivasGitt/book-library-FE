@@ -2,12 +2,12 @@ import { Component, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BooksService } from '../books.service';
 import { CommonModule } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, NgxPaginationModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
