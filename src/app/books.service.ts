@@ -23,16 +23,16 @@ export class BooksService {
 
   //get book by isbn
   getBookByIsbn(isbn: string){
-    return this.http.get<any>(`${this.serverURL}/books${isbn}`);
+    return this.http.get<any>(`${this.serverURL}/books/${isbn}`);
   }
 
   //edit a book using isbn number
   editBook(isbn: string, newData: any){
-    return this.http.put(`${this.serverURL}/books${isbn}`, newData);
+    return this.http.put(`${this.serverURL}/books/${isbn}`, newData);
   }
 
   // Delete a book by ISBN number
   deleteBook(isbn: string){
-    return this.http.delete(`${this.serverURL}/books${isbn}`);
+    return this.http.delete(`${this.serverURL}/books/${isbn}`);
   }
 }
