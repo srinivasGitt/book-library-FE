@@ -1,3 +1,3 @@
 export  const environment = {
-  serviceURL: 'http://localhost:3002/',
+  serviceURL: 'https://backend-book-library.vercel.app',
 };
